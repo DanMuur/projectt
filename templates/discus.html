@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Forum</title>
+</head>
+<body>
+    <div class="header">
+        <a id="reg">{{ auth }}</a>
+        <a id="back" href="/">Назад</a>
+    </div>
+    <p id="first">
+        История сообщений {{ name }}
+    </p>
+    <table>
+        {% for mes in messages %}
+        <tr>
+            <th>{{ escape(mes[1]) }}<br>{{ escape(mes[2]) }}<br><a class="data">{{ escape(mes[3]) }}</a><br></th>
+        </tr>
+        {% end %}
+    </table>
+    <p>
+    <form class="mes" method="POST">
+        Сообщение:<input id="text" type="text" name="mes"><br><br>
+        <input type="submit">
+    </form>
+    </p>
+</body>
+</html>

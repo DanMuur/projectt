@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Forum</title>
+</head>
+<body>
+    <div class="header">
+        <a id="reg">{{ auth }}</a>
+    </div>
+    <p id="first">
+        Добро пожаловать на форум, пожалуйста, выберите тему из списка ниже. Для написания сообщений необходима авторизация.
+    </p>
+    <table>
+        {% for thema in themes %}
+        <tr>
+            <th><a href={{ escape(thema[0]) }}>{{ escape(thema[1]) }}</a></th>
+        </tr>
+        {% end %}
+    </table>
+    <p>
+    <form method="POST">
+        <p>Создать новую тему</p>
+        <input type="text" name="name">
+        <input type="submit">
+    </form>
+    </p>
+</body>
+</html>
